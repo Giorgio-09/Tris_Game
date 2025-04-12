@@ -7,12 +7,13 @@
 body {
     background-color: rgb(26, 26, 26);
     font-family: Arial, Helvetica, sans-serif;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
 }
 
+/* Header */
 .header {
     width: 100%;
     max-width: 900px;
@@ -21,7 +22,6 @@ body {
     backdrop-filter: blur(10px);
     border-radius: 10px;
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
     margin-top: 1rem;
@@ -43,6 +43,7 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
+/* Main grid */
 .main {
     display: flex;
     justify-content: center;
@@ -52,12 +53,12 @@ body {
     max-width: 900px;
 }
 
+/* Griglia di gioco */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    aspect-ratio: 1 / 1;
-    width: 100%;
     gap: 5px;
+    width: 100%;
 }
 
 .cell {
@@ -65,29 +66,30 @@ body {
     backdrop-filter: blur(10px);
     border-radius: 10px;
     cursor: pointer;
-    font-size: 8vw;
-    color: white;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
     user-select: none;
-    transition: transform 0.1s ease, background 0.3s ease;
     border: none;
+    transition: background 0.3s ease;
+    aspect-ratio: 1 / 1; /* <-- mantiene quadrate le celle */
+    width: 100%;
 }
 
-.cell:hover {
-    background: rgba(255, 255, 255, 0.3);
+.cell span {
+    display: inline-block;
+    text-align: center; /* Centra il testo */
+    line-height: 1;
 }
 
-.cell:active {
-    transform: scale(0.95);
-}
-
+/* Style per la visualizzazione della vittoria */
 .winContainer {
-    display: none; /* Puoi gestire visibilità JS */
+    display: none; /* Puoi gestire visibilità con JS */
 }
 
-/* Media query per rendere i bottoni più piccoli su schermi piccoli */
+/* Media query per schermi piccoli */
 @media (max-width: 600px) {
     .header button {
         font-size: 0.9rem;
